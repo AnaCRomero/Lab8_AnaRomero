@@ -61,7 +61,7 @@ public class PROGRAMAS {
 
     @Override
     public String toString() {
-        return  nombre + " Decha de lanzamiento: " + fechaLanzamiento + " Tipo: " + tipo + " Genero:" + genero + " Puntuacion: " + puntuacion;
+        return  nombre + "      Decha de lanzamiento: " + fechaLanzamiento + " Tipo: " + tipo + " Genero: " + genero + " Puntuacion: " + puntuacion;
     }
     
     
