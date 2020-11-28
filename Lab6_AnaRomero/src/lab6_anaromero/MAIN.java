@@ -773,7 +773,7 @@ public class MAIN extends javax.swing.JFrame {
 
     private void BTN_ADDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ADDMouseClicked
         try {
-            ADMI ap = new ADMI("./Lista navideña.txt");
+            ADMI ap = new ADMI("./");
             ap.cargarArchivo();
 
             PROGRAMAS e = (PROGRAMAS) CB_PROGRAMAS.getSelectedItem();
@@ -789,7 +789,7 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_ADDMouseClicked
 
     private void BTN_ADD1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ADD1MouseClicked
-        ADMI lis = new ADMI("./Lista navideña.txt");
+        ADMI lis = new ADMI("./");
         try {
             int pos;
             pos = Integer.parseInt(JOptionPane.showInputDialog("Posicion"));
@@ -803,17 +803,20 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_ADD1MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        
         JFileChooser FC = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de Texto", "txt");
+        FC.addChoosableFileFilter(filtro);
+        int select = FC.showSaveDialog(this);
 
-        FC.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int select = FC.showOpenDialog(this);
-
+        
         if (select == JFileChooser.APPROVE_OPTION) {
             try {
                 File dir = FC.getSelectedFile();
                 boolean existe = dir.createNewFile();
                 if (existe) {
-                    JOptionPane.showMessageDialog(this, "Directorio creado exitosamente");
+                    JOptionPane.showMessageDialog(this, "Archvio creado exitosamente");
                 } else {
                     JOptionPane.showMessageDialog(this, "El directorio no fue creado, ya hay uno con ese nombre");
                 }//si se realizo
