@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
@@ -105,6 +107,9 @@ public class MAIN extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         TA_1 = new javax.swing.JTextArea();
         BTN_ABRIR = new javax.swing.JButton();
+        BTN_ADD = new javax.swing.JButton();
+        BTN_ADD1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         JM_MODIFICAR.setText("Modificar");
         JM_MODIFICAR.addActionListener(new java.awt.event.ActionListener() {
@@ -485,6 +490,27 @@ public class MAIN extends javax.swing.JFrame {
             }
         });
 
+        BTN_ADD.setText("Agregar Programa");
+        BTN_ADD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BTN_ADDMouseClicked(evt);
+            }
+        });
+
+        BTN_ADD1.setText("Eliminar  Programa");
+        BTN_ADD1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BTN_ADD1MouseClicked(evt);
+            }
+        });
+
+        jButton1.setText("Crear Archivo");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -505,9 +531,17 @@ public class MAIN extends javax.swing.JFrame {
                 .addGap(182, 182, 182)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_ABRIR, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_CARGAR))
-                .addContainerGap(66, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(BTN_ABRIR, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BTN_ADD, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(BTN_CARGAR)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BTN_ADD1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -524,7 +558,8 @@ public class MAIN extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CB_PROGRAMAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BTN_PASAR)
-                            .addComponent(BTN_ABRIR)))
+                            .addComponent(BTN_ABRIR)
+                            .addComponent(BTN_ADD)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -534,7 +569,10 @@ public class MAIN extends javax.swing.JFrame {
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(BTN_CARGAR)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BTN_CARGAR)
+                            .addComponent(BTN_ADD1)
+                            .addComponent(jButton1))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -704,13 +742,9 @@ public class MAIN extends javax.swing.JFrame {
         try {
             JFileChooser jfc = new JFileChooser("./");
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de Texto", "txt");
-            FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Imagenes", "jpg", "png", "bmp");
 
             //marcar filtro y dejarlo como seleccionado
             jfc.setFileFilter(filtro);
-
-            //agregar a la lista
-            jfc.addChoosableFileFilter(filtro2);
 
             int select = jfc.showOpenDialog(this);
             if (select == JFileChooser.APPROVE_OPTION) {
@@ -736,6 +770,60 @@ public class MAIN extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_BTN_ABRIRMouseClicked
+
+    private void BTN_ADDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ADDMouseClicked
+        try {
+            ADMI ap = new ADMI("./Lista navideña.txt");
+            ap.cargarArchivo();
+
+            PROGRAMAS e = (PROGRAMAS) CB_PROGRAMAS.getSelectedItem();
+
+            ap.getListaProgramas().add(e);
+            ap.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Agregado exitosamente!");
+
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Algo salio mal, mantenga selecionado un item de comboBox!");
+        }
+    }//GEN-LAST:event_BTN_ADDMouseClicked
+
+    private void BTN_ADD1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ADD1MouseClicked
+        ADMI lis = new ADMI("./Lista navideña.txt");
+        try {
+            int pos;
+            pos = Integer.parseInt(JOptionPane.showInputDialog("Posicion"));
+            lis.cargarArchivo();
+            lis.getListaProgramas().remove(pos);
+            lis.escribirArchivo();
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "No hay programas, agregue uno primero");
+        }
+    }//GEN-LAST:event_BTN_ADD1MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        JFileChooser FC = new JFileChooser();
+
+        FC.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int select = FC.showOpenDialog(this);
+
+        if (select == JFileChooser.APPROVE_OPTION) {
+            try {
+                File dir = FC.getSelectedFile();
+                boolean existe = dir.createNewFile();
+                if (existe) {
+                    JOptionPane.showMessageDialog(this, "Directorio creado exitosamente");
+                } else {
+                    JOptionPane.showMessageDialog(this, "El directorio no fue creado, ya hay uno con ese nombre");
+                }//si se realizo
+            } //hasta que le de click
+            catch (IOException ex) {
+                Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -779,6 +867,8 @@ public class MAIN extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BG_GENERO;
     private javax.swing.JButton BTN_ABRIR;
+    private javax.swing.JButton BTN_ADD;
+    private javax.swing.JButton BTN_ADD1;
     private javax.swing.JButton BTN_CARGAR;
     private javax.swing.JButton BTN_PASAR;
     private javax.swing.JButton BTN_modificar;
@@ -809,6 +899,7 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField TF_FECHA;
     private javax.swing.JFormattedTextField TF_FECHA1;
     private javax.swing.JTextField TF_NOMBREP;
+    private javax.swing.JButton jButton1;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JEditorPane jEditorPane2;
     private javax.swing.JLabel jLabel1;

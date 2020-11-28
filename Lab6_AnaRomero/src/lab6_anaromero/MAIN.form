@@ -739,10 +739,20 @@
                       <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane6" min="-2" pref="367" max="-2" attributes="0"/>
-                          <Component id="BTN_ABRIR" min="-2" pref="115" max="-2" attributes="0"/>
-                          <Component id="BTN_CARGAR" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="BTN_ABRIR" min="-2" pref="115" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="BTN_ADD" min="-2" pref="136" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="BTN_CARGAR" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="BTN_ADD1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -763,6 +773,7 @@
                                   <Component id="CB_PROGRAMAS" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="BTN_PASAR" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="BTN_ABRIR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="BTN_ADD" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -777,7 +788,11 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="BTN_CARGAR" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="BTN_CARGAR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="BTN_ADD1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace pref="49" max="32767" attributes="0"/>
@@ -870,6 +885,30 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BTN_ABRIRMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="BTN_ADD">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Agregar Programa"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BTN_ADDMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="BTN_ADD1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar  Programa"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BTN_ADD1MouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear Archivo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
