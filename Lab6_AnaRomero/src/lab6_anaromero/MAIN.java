@@ -782,7 +782,6 @@ public class MAIN extends javax.swing.JFrame {
             ap.escribirArchivo();
             JOptionPane.showMessageDialog(this, "Agregado exitosamente!");
 
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Algo salio mal, mantenga selecionado un item de comboBox!");
         }
@@ -803,14 +802,11 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_ADD1MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-
-        
         JFileChooser FC = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de Texto", "txt");
         FC.addChoosableFileFilter(filtro);
         int select = FC.showSaveDialog(this);
 
-        
         if (select == JFileChooser.APPROVE_OPTION) {
             try {
                 File dir = FC.getSelectedFile();
@@ -818,7 +814,7 @@ public class MAIN extends javax.swing.JFrame {
                 if (existe) {
                     JOptionPane.showMessageDialog(this, "Archvio creado exitosamente");
                 } else {
-                    JOptionPane.showMessageDialog(this, "El directorio no fue creado, ya hay uno con ese nombre");
+                    JOptionPane.showMessageDialog(this, "El archivo no fue creado, ya hay uno con ese nombre");
                 }//si se realizo
             } //hasta que le de click
             catch (IOException ex) {
