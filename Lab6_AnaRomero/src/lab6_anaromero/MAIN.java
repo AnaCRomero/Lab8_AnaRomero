@@ -15,6 +15,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -39,6 +42,16 @@ public class MAIN extends javax.swing.JFrame {
         modelo.addElement(("Accion"));
         CB_GENERO.setModel(modelo);
         CB_GENERO1.setModel(modelo);
+        
+        //___________________________________________________________________________
+        //comboBox FILTROS
+        DefaultComboBoxModel filtro = (DefaultComboBoxModel) CB_FILTROS.getModel();
+        filtro.addElement(("Año"));
+        filtro.addElement(("Tipo"));
+        filtro.addElement(("Genero"));
+        CB_FILTROS.setModel(filtro);
+        CB_FILTROS.setModel(filtro);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -108,8 +121,17 @@ public class MAIN extends javax.swing.JFrame {
         TA_1 = new javax.swing.JTextArea();
         BTN_ABRIR = new javax.swing.JButton();
         BTN_ADD = new javax.swing.JButton();
-        BTN_ADD1 = new javax.swing.JButton();
+        BTN_DELETE = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        CB_FILTROS = new javax.swing.JComboBox<>();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        JT_YEAR = new javax.swing.JTree();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        JT_TIPO = new javax.swing.JTree();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        JT_GENERO = new javax.swing.JTree();
+        jLabel14 = new javax.swing.JLabel();
 
         JM_MODIFICAR.setText("Modificar");
         JM_MODIFICAR.addActionListener(new java.awt.event.ActionListener() {
@@ -130,18 +152,23 @@ public class MAIN extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(51, 0, 0));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nombre:");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Puntacion:");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Tipo:");
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Fecha de lanzamiento:");
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Genero:");
 
         BTN_modificar.setText("Modificar");
@@ -298,20 +325,26 @@ public class MAIN extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre:");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Puntacion:");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tipo:");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fecha de lanzamiento:");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Genero:");
 
+        JB_ADD.setForeground(new java.awt.Color(255, 255, 255));
         JB_ADD.setText("Agregar");
         JB_ADD.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -324,15 +357,19 @@ public class MAIN extends javax.swing.JFrame {
         SP_PUNTUACION.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
 
         BG_GENERO.add(RB_ANIME);
+        RB_ANIME.setForeground(new java.awt.Color(255, 255, 255));
         RB_ANIME.setText("Anime");
 
         BG_GENERO.add(RB_SERIE);
+        RB_SERIE.setForeground(new java.awt.Color(255, 255, 255));
         RB_SERIE.setText("Serie");
 
         BG_GENERO.add(RB_DOCUMENTAL);
+        RB_DOCUMENTAL.setForeground(new java.awt.Color(255, 255, 255));
         RB_DOCUMENTAL.setText("Documental");
 
         BG_GENERO.add(RB_PELICULA);
+        RB_PELICULA.setForeground(new java.awt.Color(255, 255, 255));
         RB_PELICULA.setText("Pelicula");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -356,7 +393,7 @@ public class MAIN extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(TF_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 409, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 422, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
@@ -420,6 +457,7 @@ public class MAIN extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(51, 0, 0));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("PROGRAMAS");
         jLabel22.setOpaque(true);
@@ -436,27 +474,27 @@ public class MAIN extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 952, Short.MAX_VALUE)
+            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(147, 147, 147))
+                .addGap(141, 141, 141))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel22)
-                .addGap(82, 82, 82)
+                .addGap(81, 81, 81)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Metodos Admi. Programas", jPanel2);
 
         jPanel5.setBackground(new java.awt.Color(51, 0, 0));
 
-        BTN_CARGAR.setText("Cargar Archivo");
+        BTN_CARGAR.setText("Guardar Archivo");
         BTN_CARGAR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BTN_CARGARMouseClicked(evt);
@@ -464,9 +502,11 @@ public class MAIN extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Nombre:");
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Programas a agregar:");
 
         BTN_PASAR.setText("Pasar a Lista");
@@ -497,10 +537,10 @@ public class MAIN extends javax.swing.JFrame {
             }
         });
 
-        BTN_ADD1.setText("Eliminar  Programa");
-        BTN_ADD1.addMouseListener(new java.awt.event.MouseAdapter() {
+        BTN_DELETE.setText("Eliminar  Programa");
+        BTN_DELETE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BTN_ADD1MouseClicked(evt);
+                BTN_DELETEMouseClicked(evt);
             }
         });
 
@@ -528,20 +568,20 @@ public class MAIN extends javax.swing.JFrame {
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TF_NOMBREP, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(182, 182, 182)
+                .addGap(176, 176, 176)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(BTN_ABRIR, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BTN_ADD, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(BTN_CARGAR)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BTN_ADD1)
+                        .addComponent(BTN_DELETE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -571,12 +611,91 @@ public class MAIN extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BTN_CARGAR)
-                            .addComponent(BTN_ADD1)
+                            .addComponent(BTN_DELETE)
                             .addComponent(jButton1))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("ClaudiList", jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(51, 0, 0));
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Programas");
+        JT_YEAR.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane7.setViewportView(JT_YEAR);
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Programas");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Anime");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Documental");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Serie");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pelicula");
+        treeNode1.add(treeNode2);
+        JT_TIPO.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane8.setViewportView(JT_TIPO);
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Programas");
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Comedia");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Romance");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Terror");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("SyFy");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Suspenso");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Accion");
+        treeNode1.add(treeNode2);
+        JT_GENERO.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane9.setViewportView(JT_GENERO);
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Filtros:");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(CB_FILTROS, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CB_FILTROS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(50, 50, 50))
+        );
+
+        jTabbedPane1.addTab("Arbol", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -591,54 +710,6 @@ public class MAIN extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JB_ADDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ADDMouseClicked
-        try {
-            DefaultListModel modelo = (DefaultListModel) JL_PROGRAMAS.getModel();
-
-            String nombre = TB_NOMBRE.getText();
-            String fecha = TF_FECHA.getText();
-            int puntuacion = (int) SP_PUNTUACION.getValue();
-            String tipo = "";
-
-            if (RB_ANIME.isSelected()) {
-                tipo = "Anime";
-            } else if (RB_DOCUMENTAL.isSelected()) {
-                tipo = "Documental";
-            } else if (RB_SERIE.isSelected()) {
-                tipo = "Serie";
-            } else if (RB_PELICULA.isSelected()) {
-                tipo = "Pelicula";
-            }
-
-            String genero = (String) CB_GENERO.getSelectedItem().toString();;
-
-            modelo.addElement(new PROGRAMAS(nombre, fecha, tipo, genero, puntuacion));  //JLIST
-
-            //COMBOBOX
-            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) CB_PROGRAMAS.getModel();
-            modelo2.addElement(new PROGRAMAS(nombre, fecha, tipo, genero, puntuacion));
-            CB_PROGRAMAS.setModel(modelo2);
-            JOptionPane.showMessageDialog(this, "Creado exitosamente!");
-
-            TB_NOMBRE.setText("");
-            TF_FECHA.setText("");
-            CB_GENERO.setSelectedIndex(0);
-            SP_PUNTUACION.setValue(0);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Algo saio mal, intente nuevamente!");
-        }
-
-    }//GEN-LAST:event_JB_ADDMouseClicked
-
-    private void JL_PROGRAMASMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_PROGRAMASMouseClicked
-        if (JL_PROGRAMAS.getSelectedIndex() >= 0) {
-            if (evt.isMetaDown()) {
-                POP_ADMI.show(evt.getComponent(), evt.getX(), evt.getY());
-            }//valida que sea click derecho
-        }//que seleccione algo
-    }//GEN-LAST:event_JL_PROGRAMASMouseClicked
 
     private void JM_ELIMINARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_ELIMINARActionPerformed
         if (JL_PROGRAMAS.getSelectedIndex() >= 0) {
@@ -701,37 +772,59 @@ public class MAIN extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BTN_modificarMouseClicked
 
-    private void BTN_PASARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_PASARMouseClicked
-        if (CB_PROGRAMAS.getSelectedIndex() >= 0) {
-            DefaultComboBoxModel cbc = (DefaultComboBoxModel) CB_PROGRAMAS.getModel();
-            DefaultListModel modeloA = (DefaultListModel) JL_P.getModel();
-            PROGRAMAS programas = (PROGRAMAS) CB_PROGRAMAS.getSelectedItem();
-            modeloA.addElement(programas);
-            JL_P.setModel(modeloA);
-            cbc.removeElement((PROGRAMAS) CB_PROGRAMAS.getSelectedItem());
-            CB_PROGRAMAS.setModel(cbc);
-        } else {
-            JOptionPane.showMessageDialog(null, "Selleccione una clase primero, si no aparecen clases entonces cree una");
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        ADMI ap = new ADMI("./"+TF_NOMBREP+".txt");        
+        ap.cargarArchivo(); 
+        
+        DefaultListModel mp =(DefaultListModel) JL_P.getModel();
+        
+        for (int i = 0; i < mp.getSize(); i++) {
+            PROGRAMAS p1 = (PROGRAMAS)mp.get(i);
+            ap.getListaProgramas().add(p1);
+        }        
+        try {
+            ap.escribirArchivo();
+        } catch (IOException ex) {
+            Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_BTN_PASARMouseClicked
+        
+        
+        
+    }//GEN-LAST:event_jButton1MouseClicked
 
-    private void BTN_CARGARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_CARGARMouseClicked
-        //cargar
-        ADMI admi = new ADMI("./Lista navideña.txt");
+    private void BTN_DELETEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_DELETEMouseClicked
+        ADMI admi = new ADMI(TF_NOMBREP.getText());
+        
+        int indice = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice que desea eliminar"));
         admi.cargarArchivo();
-        ListModel d = JL_P.getModel();
-
-        for (int i = 0; i < d.getSize(); i++) {
-            admi.getListaProgramas().add((PROGRAMAS) d.getElementAt(i));
-        }
-
-        JOptionPane.showMessageDialog(this, "Carga completa");
-
+        admi.getListaProgramas().remove(indice);
+        JOptionPane.showMessageDialog(this, "Eliminado correctamente!");
+        TA_1.setText("");
+        
         try {
             admi.escribirArchivo();
         } catch (IOException ex) {
+            Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_BTN_CARGARMouseClicked
+        
+
+    }//GEN-LAST:event_BTN_DELETEMouseClicked
+
+    private void BTN_ADDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ADDMouseClicked
+        try {
+            ADMI ap = new ADMI("./");
+            ap.cargarArchivo();
+
+            PROGRAMAS e = (PROGRAMAS) CB_PROGRAMAS.getSelectedItem();
+
+            ap.getListaProgramas().add(e);
+            ap.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Agregado exitosamente!");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Algo salio mal, mantenga selecionado un item de comboBox!");
+        }
+    }//GEN-LAST:event_BTN_ADDMouseClicked
 
     private void BTN_ABRIRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ABRIRMouseClicked
         File fichero = null;
@@ -760,7 +853,7 @@ public class MAIN extends javax.swing.JFrame {
                     TA_1.append("\n");
                 }//fin de recorrer todo el archivo
 
-            }//fin si seleciona algo         
+            }//fin si seleciona algo
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -771,58 +864,80 @@ public class MAIN extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BTN_ABRIRMouseClicked
 
-    private void BTN_ADDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ADDMouseClicked
-        try {
-            ADMI ap = new ADMI("./");
-            ap.cargarArchivo();
-
-            PROGRAMAS e = (PROGRAMAS) CB_PROGRAMAS.getSelectedItem();
-
-            ap.getListaProgramas().add(e);
-            ap.escribirArchivo();
-            JOptionPane.showMessageDialog(this, "Agregado exitosamente!");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Algo salio mal, mantenga selecionado un item de comboBox!");
+    private void BTN_PASARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_PASARMouseClicked
+        if (CB_PROGRAMAS.getSelectedIndex() >= 0) {
+            DefaultComboBoxModel cbc = (DefaultComboBoxModel) CB_PROGRAMAS.getModel();
+            DefaultListModel modeloA = (DefaultListModel) JL_P.getModel();
+            PROGRAMAS programas = (PROGRAMAS) CB_PROGRAMAS.getSelectedItem();
+            modeloA.addElement(programas);
+            JL_P.setModel(modeloA);
+            cbc.removeElement((PROGRAMAS) CB_PROGRAMAS.getSelectedItem());
+            CB_PROGRAMAS.setModel(cbc);
+        } else {
+            JOptionPane.showMessageDialog(null, "Selleccione una clase primero, si no aparecen clases entonces cree una");
         }
-    }//GEN-LAST:event_BTN_ADDMouseClicked
+    }//GEN-LAST:event_BTN_PASARMouseClicked
 
-    private void BTN_ADD1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ADD1MouseClicked
-        ADMI lis = new ADMI("./");
+    private void JB_ADDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ADDMouseClicked
         try {
-            int pos;
-            pos = Integer.parseInt(JOptionPane.showInputDialog("Posicion"));
-            lis.cargarArchivo();
-            lis.getListaProgramas().remove(pos);
-            lis.escribirArchivo();
-        } catch (Exception e) {
+            DefaultListModel modelo = (DefaultListModel) JL_PROGRAMAS.getModel();
 
-            JOptionPane.showMessageDialog(null, "No hay programas, agregue uno primero");
-        }
-    }//GEN-LAST:event_BTN_ADD1MouseClicked
+            String nombre = TB_NOMBRE.getText();
+            String fecha = TF_FECHA.getText();
+            int puntuacion = (int) SP_PUNTUACION.getValue();
+            String tipo = "";
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        JFileChooser FC = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de Texto", "txt");
-        FC.addChoosableFileFilter(filtro);
-        int select = FC.showSaveDialog(this);
-
-        if (select == JFileChooser.APPROVE_OPTION) {
-            try {
-                File dir = FC.getSelectedFile();
-                boolean existe = dir.createNewFile();
-                if (existe) {
-                    JOptionPane.showMessageDialog(this, "Archvio creado exitosamente");
-                } else {
-                    JOptionPane.showMessageDialog(this, "El archivo no fue creado, ya hay uno con ese nombre");
-                }//si se realizo
-            } //hasta que le de click
-            catch (IOException ex) {
-                Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
+            if (RB_ANIME.isSelected()) {
+                tipo = "Anime";
+            } else if (RB_DOCUMENTAL.isSelected()) {
+                tipo = "Documental";
+            } else if (RB_SERIE.isSelected()) {
+                tipo = "Serie";
+            } else if (RB_PELICULA.isSelected()) {
+                tipo = "Pelicula";
             }
-        }
 
-    }//GEN-LAST:event_jButton1MouseClicked
+            String genero = (String) CB_GENERO.getSelectedItem().toString();
+            PROGRAMAS p1 = new PROGRAMAS(nombre, fecha, tipo, genero, puntuacion);
+
+            modelo.addElement(p1);  //JLIST
+
+            //COMBOBOX
+            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) CB_PROGRAMAS.getModel();
+            modelo2.addElement(p1);
+            CB_PROGRAMAS.setModel(modelo2);
+            JOptionPane.showMessageDialog(this, "Creado exitosamente!");
+
+            TB_NOMBRE.setText("");
+            TF_FECHA.setText("");
+            CB_GENERO.setSelectedIndex(0);
+            SP_PUNTUACION.setValue(0);
+            
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) JT_TIPO.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals(tipo)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(p1);
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Algo saio mal, intente nuevamente!");
+        }
+    }//GEN-LAST:event_JB_ADDMouseClicked
+
+    private void JL_PROGRAMASMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL_PROGRAMASMouseClicked
+        if (JL_PROGRAMAS.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                POP_ADMI.show(evt.getComponent(), evt.getX(), evt.getY());
+            }//valida que sea click derecho
+        }//que seleccione algo
+    }//GEN-LAST:event_JL_PROGRAMASMouseClicked
+
+    private void BTN_CARGARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_CARGARMouseClicked
+        
+    }//GEN-LAST:event_BTN_CARGARMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -867,10 +982,11 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.ButtonGroup BG_GENERO;
     private javax.swing.JButton BTN_ABRIR;
     private javax.swing.JButton BTN_ADD;
-    private javax.swing.JButton BTN_ADD1;
     private javax.swing.JButton BTN_CARGAR;
+    private javax.swing.JButton BTN_DELETE;
     private javax.swing.JButton BTN_PASAR;
     private javax.swing.JButton BTN_modificar;
+    private javax.swing.JComboBox<String> CB_FILTROS;
     private javax.swing.JComboBox<String> CB_GENERO;
     private javax.swing.JComboBox<String> CB_GENERO1;
     private javax.swing.JComboBox<String> CB_PROGRAMAS;
@@ -881,6 +997,9 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JList<String> JL_PROGRAMAS;
     private javax.swing.JMenuItem JM_ELIMINAR;
     private javax.swing.JMenuItem JM_MODIFICAR;
+    private javax.swing.JTree JT_GENERO;
+    private javax.swing.JTree JT_TIPO;
+    private javax.swing.JTree JT_YEAR;
     private javax.swing.JPopupMenu POP_ADMI;
     private javax.swing.JRadioButton RB_ANIME;
     private javax.swing.JRadioButton RB_ANIME1;
@@ -905,6 +1024,7 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
@@ -922,12 +1042,16 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
     ArrayList claudiaList = new ArrayList();

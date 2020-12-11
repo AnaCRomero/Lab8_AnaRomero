@@ -1,0 +1,31 @@
+Que inciso le toco y en qué manera cree que eso mejorara su programa.
+
+Aplicare el inciso 3; Mi programa estara completo y ya no tendra errores al tratar de hacerlos. 
+Mi proyecto mejorara ya que Clau podra ver sus listas con filtros :3 cosa que se le hara muy util.
+
+• ¿Cuál es el tema en el que más debilidad siente y por qué? (únicamente son válidos
+los temas que aparecen junto a su número de cuenta en la tabla).
+
+(negocie con Dormammu y me dejo cambiar el tema :3) Mis temas mas complicados son Binarios dado que
+los confundo bastante con los de texto y pues se utilizan metodos similares pero diferentes por ende
+siempre termino con un solo relajo :c , mi otro tema que me cuesta son Jtrees porque es un solo relajo
+nunca se que esta pasando sobre todo como se enlazan entre si
+
+• Explicación de como planea incluir ese tema en el que siente debilidad dentro del
+laboratorio que se le fue asignado
+
+Creare otra opcion dentro del tabbedPane donde el usuario (clau) podra ver en un Jtree de acuerdo 
+a un filtro (ComboBox), ahi podra escoger la opcion que desea y listara dichas listas en un Jtree
+(claro dependiendo al filtro selecionado)
+
+• Un comentario hacia su instructora hablando sinceramente sobre: Que cosas le
+gustaron y no le gustaron sobre los laboratorios que ella le asigno y que haría para
+mejorar la calidad de los mismo (por ejemplo: aumento en lacomplejidad/dificultad,
+reducción de extensión en los labs, etc)
+
+Pues estoy muy feliz con los tus laboratorios claudia :3 son "faciles" sin embargo un poco extensos
+PEROOO creo que das bastante tiempo para terminarlos, los del primer parcial me agradaron bastante
+pero creo que no estaba de mas dar un poco mas de tiempo en los laboratorios del segundo parcial porque
+si son temas complejos :,3 creo que tus docs siempre estan bien documentados y nos ayudas muchisimoo
+GRACIAAS :,3 (entre nos me agrada saber que hay una mujer instructora y me has ayudado mucho srry por
+escrbirte siempre tan tarde).
