@@ -28,6 +28,10 @@ public class MAIN extends javax.swing.JFrame {
     public MAIN() {
         initComponents();
 
+        JT_YEAR.setVisible(false);
+        JT_TIPO.setVisible(false);
+        JT_GENERO.setVisible(false);
+
         //Valida entradas
         RB_ANIME.setSelected(true);
 
@@ -42,16 +46,17 @@ public class MAIN extends javax.swing.JFrame {
         modelo.addElement(("Accion"));
         CB_GENERO.setModel(modelo);
         CB_GENERO1.setModel(modelo);
-        
+
         //___________________________________________________________________________
         //comboBox FILTROS
         DefaultComboBoxModel filtro = (DefaultComboBoxModel) CB_FILTROS.getModel();
+        filtro.addElement(("--------"));
         filtro.addElement(("Año"));
         filtro.addElement(("Tipo"));
         filtro.addElement(("Genero"));
         CB_FILTROS.setModel(filtro);
         CB_FILTROS.setModel(filtro);
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -319,6 +324,7 @@ public class MAIN extends javax.swing.JFrame {
         jScrollPane4.setViewportView(JL_M);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -393,7 +399,7 @@ public class MAIN extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(TF_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 422, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 505, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
@@ -474,7 +480,7 @@ public class MAIN extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
+            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 1048, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -581,7 +587,7 @@ public class MAIN extends javax.swing.JFrame {
                         .addComponent(BTN_DELETE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -619,10 +625,20 @@ public class MAIN extends javax.swing.JFrame {
         jTabbedPane1.addTab("ClaudiList", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(51, 0, 0));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CB_FILTROS.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CB_FILTROSItemStateChanged(evt);
+            }
+        });
+        jPanel6.add(CB_FILTROS, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 70, 200, -1));
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Programas");
         JT_YEAR.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane7.setViewportView(JT_YEAR);
+
+        jPanel6.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 260, 296));
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Programas");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Anime");
@@ -634,7 +650,10 @@ public class MAIN extends javax.swing.JFrame {
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pelicula");
         treeNode1.add(treeNode2);
         JT_TIPO.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        JT_TIPO.setFocusTraversalPolicyProvider(true);
         jScrollPane8.setViewportView(JT_TIPO);
+
+        jPanel6.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, 260, 296));
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Programas");
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Comedia");
@@ -652,61 +671,16 @@ public class MAIN extends javax.swing.JFrame {
         JT_GENERO.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane9.setViewportView(JT_GENERO);
 
+        jPanel6.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 260, 296));
+
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Filtros:");
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(18, 18, 18)
-                        .addComponent(CB_FILTROS, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CB_FILTROS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(50, 50, 50))
-        );
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 69, -1, -1));
 
         jTabbedPane1.addTab("Arbol", jPanel6);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -773,40 +747,39 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_modificarMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ADMI ap = new ADMI("./"+TF_NOMBREP+".txt");        
-        ap.cargarArchivo(); 
-        
-        DefaultListModel mp =(DefaultListModel) JL_P.getModel();
-        
+        ADMI ap = new ADMI("./" + TF_NOMBREP + ".txt");
+        ap.cargarArchivo();
+
+        DefaultListModel mp = (DefaultListModel) JL_P.getModel();
+
         for (int i = 0; i < mp.getSize(); i++) {
-            PROGRAMAS p1 = (PROGRAMAS)mp.get(i);
+            PROGRAMAS p1 = (PROGRAMAS) mp.get(i);
             ap.getListaProgramas().add(p1);
-        }        
+        }
         try {
             ap.escribirArchivo();
         } catch (IOException ex) {
             Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void BTN_DELETEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_DELETEMouseClicked
         ADMI admi = new ADMI(TF_NOMBREP.getText());
-        
+
         int indice = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice que desea eliminar"));
         admi.cargarArchivo();
         admi.getListaProgramas().remove(indice);
         JOptionPane.showMessageDialog(this, "Eliminado correctamente!");
         TA_1.setText("");
-        
+
         try {
             admi.escribirArchivo();
         } catch (IOException ex) {
             Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
 
     }//GEN-LAST:event_BTN_DELETEMouseClicked
 
@@ -820,7 +793,7 @@ public class MAIN extends javax.swing.JFrame {
             ap.getListaProgramas().add(e);
             ap.escribirArchivo();
             JOptionPane.showMessageDialog(this, "Agregado exitosamente!");
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Algo salio mal, mantenga selecionado un item de comboBox!");
         }
@@ -912,15 +885,68 @@ public class MAIN extends javax.swing.JFrame {
             TF_FECHA.setText("");
             CB_GENERO.setSelectedIndex(0);
             SP_PUNTUACION.setValue(0);
-            
-            DefaultTreeModel modeloARBOL = (DefaultTreeModel) JT_TIPO.getModel();
-            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+
+            //-----------------------------------------------------------------------------------------------------------------------------
+            //ARBOL POR TIPO
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) JT_TIPO.getModel();   //agarra modelo
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();   //agarra raiz del arbol
             for (int i = 0; i < raiz.getChildCount(); i++) {
+
                 if (raiz.getChildAt(i).toString().equals(tipo)) {
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(p1);
-                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
-                }
-            }
+
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(p1);  //crea el nuevo nodo dentro del arbol (P es mi nodo)
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);       //solo agrego el nodo
+                    tree2 = true;
+                }//valida  que el child sea igual al tipo del programa
+
+            }//recorre la raiz del arbol donde estan los childs de dicho arbol (programas)
+
+            modeloARBOL.reload();   //hace refresh para que se vaya updetiando solo
+
+            //-----------------------------------------------------------------------------------------------------------------------------
+            //ARBOL POR GENERO
+            DefaultTreeModel modeloARBOL2 = (DefaultTreeModel) JT_GENERO.getModel();   //agarra modelo
+            DefaultMutableTreeNode raiz2 = (DefaultMutableTreeNode) modeloARBOL2.getRoot();   //agarra raiz del arbol
+            for (int i = 0; i < raiz2.getChildCount(); i++) {
+
+                if (raiz2.getChildAt(i).toString().equals(genero)) {
+
+                    DefaultMutableTreeNode n1 = new DefaultMutableTreeNode(p1);  //crea el nuevo nodo dentro del arbol 
+                    ((DefaultMutableTreeNode) raiz2.getChildAt(i)).add(n1);       //solo agrego el nodo
+                    tree3 = true;
+                }//valida  que el child sea igual al tipo del programa
+
+            }//recorre la raiz del arbol donde estan los childs de dicho arbol (programas)
+
+            modeloARBOL2.reload();   //hace refresh para que se vaya updetiando solo
+
+            //-----------------------------------------------------------------------------------------------------------------------------
+            //ARBOL POR YEAR
+            DefaultTreeModel modeloARBOL3 = (DefaultTreeModel) JT_YEAR.getModel();   //agarra modelo
+            DefaultMutableTreeNode raiz3 = (DefaultMutableTreeNode) modeloARBOL3.getRoot();   //agarra raiz del arbol
+            int aux = -1;  //valida si ya esta hecho el nodo 
+            for (int i = 0; i < raiz3.getChildCount(); i++) {
+
+                if (raiz3.getChildAt(i).toString().equals(fecha)) {
+
+                    DefaultMutableTreeNode n2 = new DefaultMutableTreeNode(p1);  //crea el nuevo nodo dentro del arbol 
+                    ((DefaultMutableTreeNode) raiz3.getChildAt(i)).add(n2);       //solo agrego el nodo
+                    aux = 1;
+                    tree1 = true;
+                }//valida  que el child sea igual al tipo del programa
+
+            }//recorre la raiz del arbol donde estan los childs de dicho arbol (programas)
+
+            if (aux == -1) {
+
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(fecha);   //crea carpeta con nombre de la fecha
+                DefaultMutableTreeNode n2 = new DefaultMutableTreeNode(p1);  //crea el programa
+                n.add(n2);  //agrega el nodo dentro de la raiz
+                raiz3.add(n);   //crea carpeta fecha
+                tree1 = true;
+
+            }//si no existe el archivo de dicha fecha
+            modeloARBOL3.reload();   //hace refresh para que se vaya updetiando solo
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Algo saio mal, intente nuevamente!");
@@ -936,8 +962,45 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_JL_PROGRAMASMouseClicked
 
     private void BTN_CARGARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_CARGARMouseClicked
-        
+
     }//GEN-LAST:event_BTN_CARGARMouseClicked
+
+    private void CB_FILTROSItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_FILTROSItemStateChanged
+        if (CB_FILTROS.getSelectedIndex() == 0) {
+            
+            JT_GENERO.setVisible(false);
+            JT_YEAR.setVisible(false);
+            JT_TIPO.setVisible(false);
+            
+        }else if (CB_FILTROS.getSelectedIndex() == 1) {
+            if (tree1) {
+                JT_YEAR.setVisible(true);
+                JT_TIPO.setVisible(false);
+                JT_GENERO.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(null, "El Arbol esta vacio, primero agregue algo");
+            }
+            
+        } else if (CB_FILTROS.getSelectedIndex() == 2) {
+            if (tree2) {
+                JT_YEAR.setVisible(false);
+                JT_TIPO.setVisible(true);
+                JT_GENERO.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(null, "El Arbol esta vacio, primero agregue algo");
+            }
+            
+        } else if(CB_FILTROS.getSelectedIndex() == 3) {
+            if (tree3) {
+                JT_YEAR.setVisible(false);
+                JT_TIPO.setVisible(false);
+                JT_GENERO.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "El Arbol esta vacio, primero agregue algo");
+            }
+            
+        }//valida que sea visible o no
+    }//GEN-LAST:event_CB_FILTROSItemStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1055,4 +1118,7 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
     ArrayList claudiaList = new ArrayList();
+    boolean tree1 = false;
+    boolean tree2 = false;
+    boolean tree3 = false;
 }
