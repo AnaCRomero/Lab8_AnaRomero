@@ -93,6 +93,17 @@ public class MAIN extends javax.swing.JFrame {
         jEditorPane2 = new javax.swing.JEditorPane();
         jScrollPane4 = new javax.swing.JScrollPane();
         JL_M = new javax.swing.JList<>();
+        MODIFICAR_ARCHIVO = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        TB_NOMBRE2 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        TF_FECHA2 = new javax.swing.JFormattedTextField();
+        jLabel16 = new javax.swing.JLabel();
+        SP_PUNTUACION2 = new javax.swing.JSpinner();
+        BTN_modificar1 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -114,7 +125,6 @@ public class MAIN extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JL_PROGRAMAS = new javax.swing.JList<>();
         jPanel5 = new javax.swing.JPanel();
-        BTN_CARGAR = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         TF_NOMBREP = new javax.swing.JTextField();
@@ -125,9 +135,9 @@ public class MAIN extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         TA_1 = new javax.swing.JTextArea();
         BTN_ABRIR = new javax.swing.JButton();
-        BTN_ADD = new javax.swing.JButton();
-        BTN_DELETE = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        MODIFICAR = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         CB_FILTROS = new javax.swing.JComboBox<>();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -323,6 +333,105 @@ public class MAIN extends javax.swing.JFrame {
         JL_M.setModel(new DefaultListModel());
         jScrollPane4.setViewportView(JL_M);
 
+        MODIFICAR_ARCHIVO.setTitle("Modificar programa dentro de un archivo");
+
+        jPanel7.setBackground(new java.awt.Color(51, 0, 0));
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Nombre:");
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Fecha de lanzamiento:");
+
+        TF_FECHA2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("####"))));
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Puntacion:");
+
+        SP_PUNTUACION2.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+
+        BTN_modificar1.setText("Modificar");
+        BTN_modificar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BTN_modificar1MouseClicked(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Seleccione un archivo:");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BTN_modificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel17)
+                        .addGap(27, 27, 27)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(TB_NOMBRE2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TF_FECHA2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addGap(188, 188, 188)))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SP_PUNTUACION2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TB_NOMBRE2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(28, 28, 28)
+                        .addComponent(TF_FECHA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(SP_PUNTUACION2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(196, 196, 196)
+                .addComponent(BTN_modificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+
+        javax.swing.GroupLayout MODIFICAR_ARCHIVOLayout = new javax.swing.GroupLayout(MODIFICAR_ARCHIVO.getContentPane());
+        MODIFICAR_ARCHIVO.getContentPane().setLayout(MODIFICAR_ARCHIVOLayout);
+        MODIFICAR_ARCHIVOLayout.setHorizontalGroup(
+            MODIFICAR_ARCHIVOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        MODIFICAR_ARCHIVOLayout.setVerticalGroup(
+            MODIFICAR_ARCHIVOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -500,13 +609,6 @@ public class MAIN extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(51, 0, 0));
 
-        BTN_CARGAR.setText("Guardar Archivo");
-        BTN_CARGAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BTN_CARGARMouseClicked(evt);
-            }
-        });
-
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Nombre:");
@@ -536,24 +638,29 @@ public class MAIN extends javax.swing.JFrame {
             }
         });
 
-        BTN_ADD.setText("Agregar Programa");
-        BTN_ADD.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BTN_ADDMouseClicked(evt);
-            }
-        });
-
-        BTN_DELETE.setText("Eliminar  Programa");
-        BTN_DELETE.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BTN_DELETEMouseClicked(evt);
-            }
-        });
-
-        jButton1.setText("Crear Archivo");
+        jButton1.setText("Crear   Archivo");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+
+        MODIFICAR.setText("Modificar Archivo");
+        MODIFICAR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MODIFICARMouseClicked(evt);
+            }
+        });
+
+        jButton4.setText("Eliminar Archivo");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -561,40 +668,38 @@ public class MAIN extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TF_NOMBREP, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(CB_PROGRAMAS, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BTN_PASAR))
-                    .addComponent(jLabel12)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TF_NOMBREP, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(176, 176, 176)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(BTN_ABRIR, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(BTN_ABRIR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MODIFICAR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BTN_ADD, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(BTN_CARGAR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BTN_DELETE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4)))
+                .addGap(193, 193, 193))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(47, 47, 47)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(TF_NOMBREP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -603,23 +708,19 @@ public class MAIN extends javax.swing.JFrame {
                         .addGap(62, 62, 62)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CB_PROGRAMAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BTN_PASAR)
-                            .addComponent(BTN_ABRIR)
-                            .addComponent(BTN_ADD)))
+                            .addComponent(BTN_PASAR)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BTN_CARGAR)
-                            .addComponent(BTN_DELETE)
-                            .addComponent(jButton1))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                            .addComponent(BTN_ABRIR)
+                            .addComponent(jButton1)
+                            .addComponent(jButton4))))
+                .addGap(26, 26, 26)
+                .addComponent(MODIFICAR)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("ClaudiList", jPanel5);
@@ -641,14 +742,6 @@ public class MAIN extends javax.swing.JFrame {
         jPanel6.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 260, 296));
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Programas");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Anime");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Documental");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Serie");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Pelicula");
-        treeNode1.add(treeNode2);
         JT_TIPO.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         JT_TIPO.setFocusTraversalPolicyProvider(true);
         jScrollPane8.setViewportView(JT_TIPO);
@@ -656,18 +749,6 @@ public class MAIN extends javax.swing.JFrame {
         jPanel6.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, 260, 296));
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Programas");
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Comedia");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Romance");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Terror");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("SyFy");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Suspenso");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Accion");
-        treeNode1.add(treeNode2);
         JT_GENERO.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane9.setViewportView(JT_GENERO);
 
@@ -747,57 +828,35 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_modificarMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ADMI ap = new ADMI("./" + TF_NOMBREP + ".txt");
-        ap.cargarArchivo();
+        String nombre;
+        DefaultListModel Lista = (DefaultListModel) JL_P.getModel();
 
-        DefaultListModel mp = (DefaultListModel) JL_P.getModel();
+        if (TF_NOMBREP.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del documento");
+        } else {
+            nombre = TF_NOMBREP.getText();
+            ArrayList<PROGRAMAS> lista = new ArrayList();
+            for (int i = 0; i < Lista.size(); i++) {
+                PROGRAMAS p = (PROGRAMAS) Lista.get(i);
+                lista.add(p);
+            }
+            ADMI CL = new ADMI("./" + nombre + ".txt");
 
-        for (int i = 0; i < mp.getSize(); i++) {
-            PROGRAMAS p1 = (PROGRAMAS) mp.get(i);
-            ap.getListaProgramas().add(p1);
-        }
-        try {
-            ap.escribirArchivo();
-        } catch (IOException ex) {
-            Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
+            CL.setListaProgramas(lista);
+
+            try {
+                CL.escribirArchivo();
+                JOptionPane.showMessageDialog(null, "Lista creada exitosamente!");
+
+            } catch (IOException ex) {
+                Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Lista.removeAllElements();
+
         }
 
 
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void BTN_DELETEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_DELETEMouseClicked
-        ADMI admi = new ADMI(TF_NOMBREP.getText());
-
-        int indice = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice que desea eliminar"));
-        admi.cargarArchivo();
-        admi.getListaProgramas().remove(indice);
-        JOptionPane.showMessageDialog(this, "Eliminado correctamente!");
-        TA_1.setText("");
-
-        try {
-            admi.escribirArchivo();
-        } catch (IOException ex) {
-            Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-    }//GEN-LAST:event_BTN_DELETEMouseClicked
-
-    private void BTN_ADDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ADDMouseClicked
-        try {
-            ADMI ap = new ADMI("./");
-            ap.cargarArchivo();
-
-            PROGRAMAS e = (PROGRAMAS) CB_PROGRAMAS.getSelectedItem();
-
-            ap.getListaProgramas().add(e);
-            ap.escribirArchivo();
-            JOptionPane.showMessageDialog(this, "Agregado exitosamente!");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Algo salio mal, mantenga selecionado un item de comboBox!");
-        }
-    }//GEN-LAST:event_BTN_ADDMouseClicked
 
     private void BTN_ABRIRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ABRIRMouseClicked
         File fichero = null;
@@ -822,8 +881,21 @@ public class MAIN extends javax.swing.JFrame {
                 TA_1.setText("");
 
                 while ((info = br.readLine()) != null) {
+                    
                     TA_1.append(info);
                     TA_1.append("\n");
+                    
+                    ADMI admi = new ADMI(fr.toString());                  
+                    
+                    DefaultComboBoxModel modelo = (DefaultComboBoxModel) jComboBox1.getModel();
+                    
+                    for (int i = 0; i < admi.getListaProgramas().size(); i++) {
+                       System.out.println(admi.getListaProgramas().size());
+                       modelo.addElement(admi.getListaProgramas().size());                      
+                    }
+                    
+                    jComboBox1.setModel(modelo);
+                    
                 }//fin de recorrer todo el archivo
 
             }//fin si seleciona algo
@@ -890,6 +962,7 @@ public class MAIN extends javax.swing.JFrame {
             //ARBOL POR TIPO
             DefaultTreeModel modeloARBOL = (DefaultTreeModel) JT_TIPO.getModel();   //agarra modelo
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();   //agarra raiz del arbol
+            int auxi1 = -1;
             for (int i = 0; i < raiz.getChildCount(); i++) {
 
                 if (raiz.getChildAt(i).toString().equals(tipo)) {
@@ -897,9 +970,19 @@ public class MAIN extends javax.swing.JFrame {
                     DefaultMutableTreeNode p = new DefaultMutableTreeNode(p1);  //crea el nuevo nodo dentro del arbol (P es mi nodo)
                     ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);       //solo agrego el nodo
                     tree2 = true;
+                    auxi1 = 1;
                 }//valida  que el child sea igual al tipo del programa
 
             }//recorre la raiz del arbol donde estan los childs de dicho arbol (programas)
+            if (auxi1 == -1) {
+
+                DefaultMutableTreeNode l = new DefaultMutableTreeNode(tipo);   //crea carpeta con nombre de la fecha
+                DefaultMutableTreeNode l2 = new DefaultMutableTreeNode(p1);  //crea el programa
+                l.add(l2);  //agrega el nodo dentro de la raiz
+                raiz.add(l);   //crea carpeta fecha
+                tree2 = true;
+
+            }//si no existe el archivo de dicha fecha
 
             modeloARBOL.reload();   //hace refresh para que se vaya updetiando solo
 
@@ -907,6 +990,7 @@ public class MAIN extends javax.swing.JFrame {
             //ARBOL POR GENERO
             DefaultTreeModel modeloARBOL2 = (DefaultTreeModel) JT_GENERO.getModel();   //agarra modelo
             DefaultMutableTreeNode raiz2 = (DefaultMutableTreeNode) modeloARBOL2.getRoot();   //agarra raiz del arbol
+            int auxi = -1;
             for (int i = 0; i < raiz2.getChildCount(); i++) {
 
                 if (raiz2.getChildAt(i).toString().equals(genero)) {
@@ -914,9 +998,19 @@ public class MAIN extends javax.swing.JFrame {
                     DefaultMutableTreeNode n1 = new DefaultMutableTreeNode(p1);  //crea el nuevo nodo dentro del arbol 
                     ((DefaultMutableTreeNode) raiz2.getChildAt(i)).add(n1);       //solo agrego el nodo
                     tree3 = true;
+                    auxi = 1;
                 }//valida  que el child sea igual al tipo del programa
 
             }//recorre la raiz del arbol donde estan los childs de dicho arbol (programas)
+            if (auxi == -1) {
+
+                DefaultMutableTreeNode m = new DefaultMutableTreeNode(genero);   //crea carpeta con nombre de la fecha
+                DefaultMutableTreeNode m2 = new DefaultMutableTreeNode(p1);  //crea el programa
+                m.add(m2);  //agrega el nodo dentro de la raiz
+                raiz2.add(m);   //crea carpeta fecha
+                tree3 = true;
+
+            }//si no existe el archivo de dicha fecha
 
             modeloARBOL2.reload();   //hace refresh para que se vaya updetiando solo
 
@@ -961,46 +1055,93 @@ public class MAIN extends javax.swing.JFrame {
         }//que seleccione algo
     }//GEN-LAST:event_JL_PROGRAMASMouseClicked
 
-    private void BTN_CARGARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_CARGARMouseClicked
-
-    }//GEN-LAST:event_BTN_CARGARMouseClicked
-
     private void CB_FILTROSItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_FILTROSItemStateChanged
         if (CB_FILTROS.getSelectedIndex() == 0) {
-            
+
             JT_GENERO.setVisible(false);
             JT_YEAR.setVisible(false);
             JT_TIPO.setVisible(false);
-            
-        }else if (CB_FILTROS.getSelectedIndex() == 1) {
+
+        } else if (CB_FILTROS.getSelectedIndex() == 1) {
             if (tree1) {
                 JT_YEAR.setVisible(true);
                 JT_TIPO.setVisible(false);
                 JT_GENERO.setVisible(false);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "El Arbol esta vacio, primero agregue algo");
             }
-            
+
         } else if (CB_FILTROS.getSelectedIndex() == 2) {
             if (tree2) {
                 JT_YEAR.setVisible(false);
                 JT_TIPO.setVisible(true);
                 JT_GENERO.setVisible(false);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "El Arbol esta vacio, primero agregue algo");
             }
-            
-        } else if(CB_FILTROS.getSelectedIndex() == 3) {
+
+        } else if (CB_FILTROS.getSelectedIndex() == 3) {
             if (tree3) {
                 JT_YEAR.setVisible(false);
                 JT_TIPO.setVisible(false);
                 JT_GENERO.setVisible(true);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "El Arbol esta vacio, primero agregue algo");
             }
-            
+
         }//valida que sea visible o no
     }//GEN-LAST:event_CB_FILTROSItemStateChanged
+
+    private void MODIFICARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MODIFICARMouseClicked
+        MOD_PROGRAMA_ARCHIVO();
+
+    }//GEN-LAST:event_MODIFICARMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        //ELIMINAR ARCHIVO
+        File fichero = null;
+        JFileChooser jfc = new JFileChooser("./");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de Texto", "txt");
+
+        //marcar filtro y dejarlo como seleccionado
+        jfc.setFileFilter(filtro);
+
+        int select = jfc.showOpenDialog(this);
+        if (select == JFileChooser.APPROVE_OPTION) {
+            jfc.setFileFilter(filtro);
+            fichero = jfc.getSelectedFile();
+            fichero.delete();
+            JOptionPane.showMessageDialog(this, "Archivo borrado exitosamente!");
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void BTN_modificar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_modificar1MouseClicked
+        File fichero = null;
+        JFileChooser jfc = new JFileChooser("./");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de Texto", "txt");
+
+        //marcar filtro y dejarlo como seleccionado
+        jfc.setFileFilter(filtro);
+
+        String nombreF = "";
+        int select = jfc.showOpenDialog(this);
+        if (select == JFileChooser.APPROVE_OPTION) {
+            jfc.setFileFilter(filtro);
+            fichero = jfc.getSelectedFile();
+            nombreF = fichero.getName();
+        }
+        ADMI a = new ADMI("./" + nombreF + ".txt");
+        int pos = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese posicion del programa"));
+        JOptionPane.showMessageDialog(this, "Que desea modificar\n"
+                + "1. Nombre\n"
+                + "2. Fecha de lanzamiento\n"
+                + "3. Puntuacion");
+        a.getListaProgramas().remove(pos);
+    }//GEN-LAST:event_BTN_modificar1MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1041,14 +1182,20 @@ public class MAIN extends javax.swing.JFrame {
         JD_MODIFICAR.setVisible(true);
     }
 
+    public void MOD_PROGRAMA_ARCHIVO() {
+        MODIFICAR_ARCHIVO.pack();
+        MODIFICAR_ARCHIVO.setModal(true);
+        MODIFICAR_ARCHIVO.setLocationRelativeTo(this);
+        MODIFICAR_ARCHIVO.setVisible(true);
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BG_GENERO;
     private javax.swing.JButton BTN_ABRIR;
-    private javax.swing.JButton BTN_ADD;
-    private javax.swing.JButton BTN_CARGAR;
-    private javax.swing.JButton BTN_DELETE;
     private javax.swing.JButton BTN_PASAR;
     private javax.swing.JButton BTN_modificar;
+    private javax.swing.JButton BTN_modificar1;
     private javax.swing.JComboBox<String> CB_FILTROS;
     private javax.swing.JComboBox<String> CB_GENERO;
     private javax.swing.JComboBox<String> CB_GENERO1;
@@ -1063,6 +1210,8 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JTree JT_GENERO;
     private javax.swing.JTree JT_TIPO;
     private javax.swing.JTree JT_YEAR;
+    private javax.swing.JButton MODIFICAR;
+    private javax.swing.JDialog MODIFICAR_ARCHIVO;
     private javax.swing.JPopupMenu POP_ADMI;
     private javax.swing.JRadioButton RB_ANIME;
     private javax.swing.JRadioButton RB_ANIME1;
@@ -1074,20 +1223,29 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JRadioButton RB_SERIE1;
     private javax.swing.JSpinner SP_PUNTUACION;
     private javax.swing.JSpinner SP_PUNTUACION1;
+    private javax.swing.JSpinner SP_PUNTUACION2;
     private javax.swing.JTextArea TA_1;
     private javax.swing.JTextField TB_NOMBRE;
     private javax.swing.JTextField TB_NOMBRE1;
+    private javax.swing.JTextField TB_NOMBRE2;
     private javax.swing.JFormattedTextField TF_FECHA;
     private javax.swing.JFormattedTextField TF_FECHA1;
+    private javax.swing.JFormattedTextField TF_FECHA2;
     private javax.swing.JTextField TF_NOMBREP;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JEditorPane jEditorPane2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
@@ -1106,6 +1264,7 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

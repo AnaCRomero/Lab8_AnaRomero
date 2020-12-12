@@ -59,6 +59,7 @@ public class ADMI {
                 bw.write(t.getFechaLanzamiento()+ "/");
                 bw.write(t.getTipo() + "/");
                 bw.write(t.getGenero()+ "/");
+                bw.write("\n");
             }
             bw.flush();
         } catch (Exception ex) {
